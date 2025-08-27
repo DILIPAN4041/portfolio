@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "temp-app": {
+    "frontend": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
-      "sourceRoot": "src",
+      "root": "frontend",
+      "sourceRoot": "frontend/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
+            "main": "frontend/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -21,11 +21,12 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "frontend/public",
+                "output": "/"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "frontend/src/styles.css"
             ]
           },
           "configurations": {
@@ -56,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "temp-app:build:production"
+              "buildTarget": "frontend:build:production"
             },
             "development": {
-              "buildTarget": "temp-app:build:development"
+              "buildTarget": "frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,11 +79,12 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "frontend/public",
+                "output": "/"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "frontend/src/styles.css"
             ]
           }
         }
